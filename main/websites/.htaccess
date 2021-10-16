@@ -1,0 +1,10 @@
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<IfModule mod_rewrite.c>
+   Options +FollowSymLinks
+   Options +Indexes
+   RewriteEngine On
+   RewriteCond %{SCRIPT_FILENAME} !-d
+   RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>

@@ -1,0 +1,6 @@
+main/api/config/credentials.php
+main/api/credentials.json
+main/mail.php
+admin/api/config/credentials.php
+.run
+.idea

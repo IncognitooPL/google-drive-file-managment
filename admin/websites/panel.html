@@ -1,0 +1,187 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheedasdasdt">
+    </head>
+
+    <body>
+    <div class="container">
+        <div class="upper-container">
+            <div class="upper-left-items">
+                <div class="menu-icon">
+                    <button class="menu-icon-button" id="menu-open-btn">
+                        <img src="img/outline_menu_black_24dp.png">
+                    </button>
+                </div>
+                <div class="upper-container-logo">
+                    <span>Becz00nia
+
+                    </span>
+                </div>
+            </div>
+            <div class="upper-right-items">
+                <button class="logout-button">
+                    <span class="logout-button-span">
+                        Wyloguj Się
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="bottom-container">
+            <div class="panel-body open">
+                <div class="panel">
+                    <p>xDDD</p>
+                </div>
+            </div>
+            <div class="main_container_overlay">
+                <div class="main_container">
+                    <p>Siema siemka</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+<html>
+
+<script>
+    let sidebar = document.querySelector(".panel-body");
+    let main_container = document.querySelector(".main_container_overlay");
+    let closeBtn = document.querySelector("#menu-open-btn");
+
+    closeBtn.addEventListener("click", ()=>{
+        sidebar.classList.toggle("open");
+        main_container.classList.toggle("open_panel");
+    });
+
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Pattaya');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins');
+    
+    .panel-body{
+        position: absolute;
+        height: 100%;
+        width: 0px;
+        top: 48px;
+        left: 0;
+        transition: all 0.5s ease;
+        z-index: 99;
+
+        box-shadow: 16px 0px 20px 0px rgb(0 0 0 / 12%);
+    }
+
+
+    .panel-body.open{
+        width: 300px;
+        background-color: white;
+    }
+
+
+    body{
+        margin: 0px;
+        padding: 0px;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    .upper-container{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 999;
+        border-bottom: 1px solid #dadce0;
+        box-shadow: 0 2px 6px 0 rgba(0,0,0,.12),inset 0 -1px 0 0 #dadce0;
+    }
+
+    .upper-left-items
+    {
+        display: flex;
+        flex: 1 0 auto;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .menu-icon{
+        display: table;
+        box-sizing: border-box;
+        height: 100%;
+        float: left;
+        padding: 4px;
+        margin: 0px 10px 0px 10px;
+    }
+
+    .menu-icon-button{
+        color: white;
+        border-radius: 50%;
+        border: none;
+        padding: 0;
+        height: 40px;
+        width: 40px;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .upper-container-logo{
+        display: table;
+        float: left;
+        box-sizing: border-box;
+        height: 100%;
+
+        font-size: 2em;
+        font-family: 'Pattaya', sans-serif;
+    }
+
+    .menu-icon-button:hover{
+        box-shadow: #b1b1b1;
+        border-radius: 100%;
+        border: #b1b1b1 solid 1px;
+    }
+
+    .upper-right-items{
+        float:right;
+    }
+
+    .logout-button{
+        background-color: rgb(66,133,244);
+        margin: 0px 20px 0px 20px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        height: 40px;
+        width: 120px;
+    }
+
+    .logout-button-span{
+        color: white;
+        font-family: 'Poppins';
+    }
+
+    .main_container_overlay{
+        height: 100%;
+        transition: all 0.5s ease;
+    }
+
+    .main_container_overlay.open_panel{
+        background-color: #b1b1b1;
+    }
+
+    .main_container{
+        text-align: center;
+        padding: 4vw;
+    }
+
+    .main_container p{
+        margin: 0;
+        padding: 0;
+    }
+
+
+    
+
+</style>
+
