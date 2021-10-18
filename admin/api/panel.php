@@ -76,7 +76,6 @@
         function GetUserInfo()
         {
             $username = $_GET['username'];
-
             $json_variable = array();
 
             global $connection;
@@ -95,6 +94,7 @@
             }
 
             return json_encode($json_variable);
+
         }
 
         function GetUserVideos()
