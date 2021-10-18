@@ -45,8 +45,6 @@
     }
 
 
-
-
     class MainPanelFunctions
     {
         function GetAllUsers()
@@ -86,7 +84,7 @@
 
             if($result->num_rows <= 0)
             {
-                $this->errorCodes();
+                return $this->errorCodes(601);
             }
             else
             {
@@ -127,20 +125,26 @@
             return json_encode($json_variable);
         }
 
-        function errorCodes($code)
+        function errorCodes($code): string
         {
             switch ($code)
             {
                 case 600:
                     $reply = "Undefined number of users";
+                    break;
                 case 601:
                     $reply = "There is no user with the given name";
-
+                    break;
+                default:
+                    $reply = "An unexpected error has occurred! Please contact the site administrator or try again.";
+                    break;
             }
+
+            return $reply;
         }
     }
 
-    function error($code)
+    function error($code): string
     {
         switch ($code)
         {
@@ -154,4 +158,6 @@
                 $reply = "An unexpected error has occurred! Please contact the site administrator or try again.";
                 break;
         }
+
+        return $reply;
     }
