@@ -90,7 +90,7 @@
     });
 
     $( ".PANEL_panel-list-item" ).click(function(event) {
-        $( ".PANEL_main_container" ).load( "panelSubWebsites/"+event.target.id+".html" );
+        $( ".PANEL_main_container" ).load( "panelSubWebsites/"+event.currentTarget.id+".html" );
     });
 
 
