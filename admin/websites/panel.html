@@ -1,7 +1,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheedasdasdt">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     </head>
 
     <body>
@@ -28,9 +29,42 @@
             </div>
         </div>
         <div class="bottom-container">
-            <div class="panel-body open">
+            <div class="panel-body">
                 <div class="panel">
-                    <p>xDDD</p>
+                    <div class="panel-list">
+                        <a class="panel-list-item" href="#">
+                            <div class="icon">
+                                <span class="material-icons">home</span>
+                            </div>
+                            <div class="text">
+                                <span>Main Page</span>
+                            </div>
+                        </a>
+                        <a class="panel-list-item" href="#">
+                            <div class="icon">
+                                <span class="material-icons">cloud</span>
+                            </div>
+                            <div class="text">
+                                <span>Google Drive Files</span>
+                            </div>
+                        </a>
+                        <a class="panel-list-item" href="#">
+                            <div class="icon">
+                                <span class="material-icons">manage_accounts</span>
+                            </div>
+                            <div class="text">
+                                <span>Users Accounts</span>
+                            </div>
+                        </a>
+                        <a class="panel-list-item" href="#">
+                            <div class="icon">
+                                <span class="material-icons">admin_panel_settings</span>
+                            </div>
+                            <div class="text">
+                                <span>Settings</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="main_container_overlay">
@@ -58,9 +92,11 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Pattaya');
     @import url('https://fonts.googleapis.com/css2?family=Poppins');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto');
     
     .panel-body{
         position: absolute;
+        overflow: hidden;
         height: 100%;
         width: 0px;
         top: 48px;
@@ -77,6 +113,38 @@
         background-color: white;
     }
 
+    .panel-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+    }
+
+    .panel-list-item{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        margin-top: 10px;
+        padding-left: 20px;
+        width: 100%;
+
+        color: black;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+    }
+
+    .panel-list-item .icon span{
+        width: 40px;
+        font-size: 40px;
+    }
+
+    .panel-list-item:hover{
+        background: #b1b1b1;
+    }
 
     body{
         margin: 0px;
@@ -98,8 +166,7 @@
         box-shadow: 0 2px 6px 0 rgba(0,0,0,.12),inset 0 -1px 0 0 #dadce0;
     }
 
-    .upper-left-items
-    {
+    .upper-left-items{
         display: flex;
         flex: 1 0 auto;
         align-items: center;
