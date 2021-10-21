@@ -1,5 +1,6 @@
-<html>
+<html lang="en">
     <head>
+        <title>Google Drive Admin Page</title>
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
@@ -7,89 +8,89 @@
     </head>
 
     <body>
-    <div class="container">
-        <div class="upper-container">
-            <div class="upper-left-items">
-                <div class="menu-icon">
-                    <button class="menu-icon-button" id="menu-open-btn">
-                        <img src="img/outline_menu_black_24dp.png">
+    <div class="PANEL_container">
+        <div class="PANEL_upper-container">
+            <div class="PANEL_upper-left-items">
+                <div class="PANEL_menu-icon">
+                    <button class="PANEL_menu-icon-button" id="PANEL_menu-open-btn">
+                        <img src="img/outline_menu_black_24dp.png" alt="">
                     </button>
                 </div>
-                <div class="upper-container-logo">
+                <div class="PANEL_upper-container-logo">
                     <span>YourHeader
 
                     </span>
                 </div>
             </div>
-            <div class="upper-right-items">
-                <button class="logout-button">
-                    <span class="logout-button-span">
-                        Wyloguj Się
+            <div class="PANEL_upper-right-items">
+                <button class="PANEL_logout-button">
+                    <span class="PANEL_logout-button-span">
+                        Log Out
                     </span>
                 </button>
             </div>
         </div>
-        <div class="bottom-container">
-            <div class="panel-body">
-                <div class="panel">
-                    <div class="panel-list">
-                        <a class="panel-list-item" id="main">
-                            <div class="icon">
+        <div class="PANEL_bottom-container">
+            <div class="PANEL_panel-body">
+                <div class="PANEL_panel">
+                    <div class="PANEL_panel-list">
+                        <a class="PANEL_panel-list-item" id="main">
+                            <div class="PANEL_icon">
                                 <span class="material-icons">home</span>
                             </div>
-                            <div class="text">
+                            <div class="PANEL_text">
                                 <span>Main Page</span>
                             </div>
                         </a>
-                        <a class="panel-list-item" id="files">
-                            <div class="icon">
+                        <a class="PANEL_panel-list-item" id="files">
+                            <div class="PANEL_icon">
                                 <span class="material-icons">cloud</span>
                             </div>
-                            <div class="text">
+                            <div class="PANEL_text">
                                 <span>Google Drive Files</span>
                             </div>
                         </a>
-                        <a class="panel-list-item" id="accounts">
-                            <div class="icon">
+                        <a class="PANEL_panel-list-item" id="accounts">
+                            <div class="PANEL_icon">
                                 <span class="material-icons">manage_accounts</span>
                             </div>
-                            <div class="text">
+                            <div class="PANEL_text">
                                 <span>Users Accounts</span>
                             </div>
                         </a>
-                        <a class="panel-list-item" id="settings">
-                            <div class="icon">
+                        <a class="PANEL_panel-list-item" id="settings">
+                            <div class="PANEL_icon">
                                 <span class="material-icons">admin_panel_settings</span>
                             </div>
-                            <div class="text">
+                            <div class="PANEL_text">
                                 <span>Settings</span>
                             </div>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="main_container_overlay">
-                <div class="main_container">
+            <div class="PANEL_main_container_overlay">
+                <div class="PANEL_main_container">
                     <p>Siema siemka</p>
                 </div>
             </div>
         </div>
     </div>
     </body>
-<html>
+
 
 <script>
-    let sidebar = document.querySelector(".panel-body");
-    let main_container = document.querySelector(".main_container_overlay");
-    let closeBtn = document.querySelector("#menu-open-btn");
+    let sidebar = document.querySelector(".PANEL_panel-body");
+    let main_container = document.querySelector(".PANEL_main_container_overlay");
+    let closeBtn = document.querySelector("#PANEL_menu-open-btn");
 
     closeBtn.addEventListener("click", ()=>{
         sidebar.classList.toggle("open");
         main_container.classList.toggle("open_panel");
     });
 
-    $( ".panel-list-item" ).click(function(event) {
-        $( ".main_container" ).load( "panelSubWebsites/"+event.target.id+".html" );
+    $( ".PANEL_panel-list-item" ).click(function(event) {
+        $( ".PANEL_main_container" ).load( "panelSubWebsites/"+event.target.id+".html" );
     });
 
 
@@ -100,27 +101,41 @@
     @import url('https://fonts.googleapis.com/css2?family=Pattaya');
     @import url('https://fonts.googleapis.com/css2?family=Poppins');
     @import url('https://fonts.googleapis.com/css2?family=Roboto');
-    
-    .panel-body{
+
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    /*
+     ///////////////////////////////////////////////
+     //                                           //
+     // Left sliding panel from the panel overlay //
+     //                                           //
+     ///////////////////////////////////////////////
+    */
+
+    .PANEL_panel-body{
         position: absolute;
         overflow: hidden;
         height: 100%;
-        width: 0px;
+        width: 0;
         top: 48px;
         left: 0;
         transition: all 0.5s ease;
         z-index: 99;
 
-        box-shadow: 16px 0px 20px 0px rgb(0 0 0 / 12%);
+        box-shadow: 16px 0 20px 0 rgb(0 0 0 / 12%);
     }
 
-
-    .panel-body.open{
+    .PANEL_panel-body.open{
         width: 300px;
         background-color: white;
     }
 
-    .panel-list{
+    .PANEL_panel-list{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -130,7 +145,7 @@
         margin-top: 30px;
     }
 
-    .panel-list-item{
+    .PANEL_panel-list-item{
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -148,11 +163,11 @@
         cursor: pointer;
     }
 
-    .panel-list-item .icon{
+    .PANEL_panel-list-item .PANEL_icon{
         margin-right: 20px;
     }
 
-    .panel-list-item .icon span{
+    .PANEL_panel-list-item .PANEL_icon span{
         color: #4b4b4b;
         width: 40px;
         font-size: 35px;
@@ -160,23 +175,24 @@
         transition: all 0.6s ease;
     }
 
-    .panel-list-item:hover .icon span{
+    .PANEL_panel-list-item:hover .PANEL_icon span{
         color: #131313;
         transition: all 0.6s ease;
     }
 
-    .panel-list-item:hover{
+    .PANEL_panel-list-item:hover{
         background: #e3e3e3;
     }
 
-    body{
-        margin: 0px;
-        padding: 0px;
-        background-color: white;
-        overflow: hidden;
-    }
+    /*
+     //////////////////////////////////////////
+     //                                      //
+     // Top container from the panel overlay //
+     //                                      //
+     //////////////////////////////////////////
+    */
 
-    .upper-container{
+    .PANEL_upper-container{
         position: relative;
         display: flex;
         justify-content: space-between;
@@ -186,26 +202,26 @@
         top: 0;
         z-index: 999;
         border-bottom: 1px solid #dadce0;
-        box-shadow: 0 2px 6px 0 rgba(0,0,0,.12),inset 0 -1px 0 0 #dadce0;
+        box-shadow: 0 3px 4px 0 rgb(0 0 0 / 20%), 0 3px 3px -2px rgb(0 0 0 / 14%), 0 1px 8px 0 rgb(0 0 0 / 12%);
     }
 
-    .upper-left-items{
+    .PANEL_upper-left-items{
         display: flex;
         flex: 1 0 auto;
         align-items: center;
         box-sizing: border-box;
     }
 
-    .menu-icon{
+    .PANEL_menu-icon{
         display: table;
         box-sizing: border-box;
         height: 100%;
         float: left;
         padding: 4px;
-        margin: 0px 10px 0px 10px;
+        margin: 0 10px 0 10px;
     }
 
-    .menu-icon-button{
+    .PANEL_menu-icon-button{
         color: white;
         border-radius: 50%;
         border: none;
@@ -216,7 +232,7 @@
         cursor: pointer;
     }
 
-    .upper-container-logo{
+    .PANEL_upper-container-logo{
         display: table;
         float: left;
         box-sizing: border-box;
@@ -226,19 +242,19 @@
         font-family: 'Pattaya', sans-serif;
     }
 
-    .menu-icon-button:hover{
+    .PANEL_menu-icon-button:hover{
         box-shadow: #b1b1b1;
         border-radius: 100%;
         border: #b1b1b1 solid 1px;
     }
 
-    .upper-right-items{
+    .PANEL_upper-right-items{
         float:right;
     }
 
-    .logout-button{
+    .PANEL_logout-button{
         background-color: rgb(66,133,244);
-        margin: 0px 20px 0px 20px;
+        margin: 0 20px 0 20px;
         border-radius: 10px;
         border: none;
         cursor: pointer;
@@ -246,26 +262,34 @@
         width: 120px;
     }
 
-    .logout-button-span{
+    .PANEL_logout-button-span{
         color: white;
-        font-family: 'Poppins';
+        font-family: 'Poppins', serif;
     }
 
-    .main_container_overlay{
+    /*
+     ///////////////////////////////////////////
+     //                                       //
+     //   Main Container from panel overlay   //
+     //                                       //
+     ///////////////////////////////////////////
+    */
+
+    .PANEL_main_container_overlay{
         height: 100%;
         transition: all 0.5s ease;
     }
 
-    .main_container_overlay.open_panel{
+    .PANEL_main_container_overlay.open_panel{
         background-color: #b1b1b1;
     }
 
-    .main_container{
+    .PANEL_main_container{
         text-align: center;
         padding: 4vw;
     }
 
-    .main_container p{
+    .PANEL_main_container p{
         margin: 0;
         padding: 0;
     }
