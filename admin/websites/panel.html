@@ -1,7 +1,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheedasdasdt">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
 
     <body>
@@ -14,7 +16,7 @@
                     </button>
                 </div>
                 <div class="upper-container-logo">
-                    <span>Becz00nia
+                    <span>YourHeader
 
                     </span>
                 </div>
@@ -28,9 +30,42 @@
             </div>
         </div>
         <div class="bottom-container">
-            <div class="panel-body open">
+            <div class="panel-body">
                 <div class="panel">
-                    <p>xDDD</p>
+                    <div class="panel-list">
+                        <a class="panel-list-item" id="main">
+                            <div class="icon">
+                                <span class="material-icons">home</span>
+                            </div>
+                            <div class="text">
+                                <span>Main Page</span>
+                            </div>
+                        </a>
+                        <a class="panel-list-item" id="files">
+                            <div class="icon">
+                                <span class="material-icons">cloud</span>
+                            </div>
+                            <div class="text">
+                                <span>Google Drive Files</span>
+                            </div>
+                        </a>
+                        <a class="panel-list-item" id="accounts">
+                            <div class="icon">
+                                <span class="material-icons">manage_accounts</span>
+                            </div>
+                            <div class="text">
+                                <span>Users Accounts</span>
+                            </div>
+                        </a>
+                        <a class="panel-list-item" id="settings">
+                            <div class="icon">
+                                <span class="material-icons">admin_panel_settings</span>
+                            </div>
+                            <div class="text">
+                                <span>Settings</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="main_container_overlay">
@@ -53,14 +88,22 @@
         main_container.classList.toggle("open_panel");
     });
 
+    $( ".panel-list-item" ).click(function(event) {
+        $( ".main_container" ).load( "panelSubWebsites/"+event.target.id+".html" );
+    });
+
+
+
 </script>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Pattaya');
     @import url('https://fonts.googleapis.com/css2?family=Poppins');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto');
     
     .panel-body{
         position: absolute;
+        overflow: hidden;
         height: 100%;
         width: 0px;
         top: 48px;
@@ -77,6 +120,54 @@
         background-color: white;
     }
 
+    .panel-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+
+        margin-top: 30px;
+    }
+
+    .panel-list-item{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        padding-left: 40px;
+        width: 100%;
+        height: 55px;
+
+        color: black;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+
+        cursor: pointer;
+    }
+
+    .panel-list-item .icon{
+        margin-right: 20px;
+    }
+
+    .panel-list-item .icon span{
+        color: #4b4b4b;
+        width: 40px;
+        font-size: 35px;
+
+        transition: all 0.6s ease;
+    }
+
+    .panel-list-item:hover .icon span{
+        color: #131313;
+        transition: all 0.6s ease;
+    }
+
+    .panel-list-item:hover{
+        background: #e3e3e3;
+    }
 
     body{
         margin: 0px;
@@ -98,8 +189,7 @@
         box-shadow: 0 2px 6px 0 rgba(0,0,0,.12),inset 0 -1px 0 0 #dadce0;
     }
 
-    .upper-left-items
-    {
+    .upper-left-items{
         display: flex;
         flex: 1 0 auto;
         align-items: center;

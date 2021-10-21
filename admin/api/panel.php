@@ -4,7 +4,7 @@
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Headers: *');
 
-    include('config/database_connect.php');
+    include('config/credentials.php');
 
     $connection = @new mysqli($db_host, $db_user, $db_password, $db_name);
 
@@ -14,10 +14,12 @@
         return;
     }
 
+    CheckingGetMethod();
 
-    function CheckingGetMethod(){
-        if(isset($_GET['m']) == true) {
-
+    function CheckingGetMethod()
+    {
+        if(isset($_GET['m']) == true)
+        {
             $m_get = $_GET['m'];
 
             switch ($m_get)
@@ -38,15 +40,13 @@
                     echo error(2);
             }
         }
-        else{
+        else
             echo error(2);
-        }
     }
 
 
-
-
-    class MainPanelFunctions{
+    class MainPanelFunctions
+    {
         function GetAllUsers()
         {
             $json_variable = new StdClass;
@@ -59,11 +59,13 @@
             {
                 $json_variable->number_of_users = $result->num_rows;
             }
-            else {
+            else
+            {
                 $json_variable->main_data = array();
                 $json_variable->number_of_users = $result->num_rows;
 
-                while ($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc())
+                {
                     array_push($json_variable->main_data, $row);
                 }
             }
@@ -73,7 +75,26 @@
 
         function GetUserInfo()
         {
-            echo "TO DO";
+            $username = $_GET['username'];
+            $json_variable = array();
+
+            global $connection;
+            $result = @$connection -> query("select id, username, Imie, email, isAdmin from users where username='".$username."'");
+
+            if($result->num_rows <= 0)
+            {
+                return $this->errorCodes(601);
+            }
+            else
+            {
+                while ($row = $result->fetch_assoc())
+                {
+                    array_push($json_variable, $row);
+                }
+            }
+
+            return json_encode($json_variable);
+
         }
 
         function GetUserVideos()
@@ -90,11 +111,13 @@
             {
                 $json_variable->number_of_files = $result->num_rows;
             }
-            else {
+            else
+            {
                 $json_variable->main_data = array();
                 $json_variable->number_of_files = $result->num_rows;
 
-                while ($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc())
+                {
                     array_push($json_variable->main_data, $row);
                 }
             }
@@ -102,19 +125,29 @@
             return json_encode($json_variable);
         }
 
-        function errorCodes($code)
+        function errorCodes($code): string
         {
             switch ($code)
             {
                 case 600:
                     $reply = "Undefined number of users";
-
+                    break;
+                case 601:
+                    $reply = "There is no user with the given name";
+                    break;
+                default:
+                    $reply = "An unexpected error has occurred! Please contact the site administrator or try again.";
+                    break;
             }
+
+            return $reply;
         }
     }
 
-    function error($code){
-        switch ($code) {
+    function error($code): string
+    {
+        switch ($code)
+        {
             case 1:
                 $reply = "A connection error to the database has occurred. Please contact the site administrator or try again.";
                 break;
@@ -125,4 +158,6 @@
                 $reply = "An unexpected error has occurred! Please contact the site administrator or try again.";
                 break;
         }
+
+        return $reply;
     }
